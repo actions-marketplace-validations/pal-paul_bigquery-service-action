@@ -1,0 +1,44 @@
+name: BigQuery Service Action
+description: "Add job status to BigQuery"
+
+author: Palash
+inputs:
+  job_status:
+    description: Job Status
+    required: true
+  job_name:
+    description: Specify job name
+    required: true
+    default: ""
+  job_title:
+    description: Specify the message title
+    required: true
+    default: ""
+  job_message:
+    description: Specify the message
+    required: true
+    default: ""
+  notify_when:
+    description: Specify on which events a slack notification is sent
+    required: false
+    default: "success,failure,warnings"
+  job_stat:
+    description: Specify the slack IDs of users you want to mention
+    required: false
+    default: ""
+  project:
+    description: Specify on which events you want to mention the users
+    required: true
+    default: ""
+  dataset:
+    description: Specify the slack IDs of groups you want to mention
+    required: true
+    default: ""
+  table:
+    description: Specify on which events you want to mention the groups
+    required: true
+    default: ""
+
+runs:
+  using: docker
+  image: Dockerfile
